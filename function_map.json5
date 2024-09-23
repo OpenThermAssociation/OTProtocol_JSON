@@ -1,0 +1,707 @@
+{
+  "groups": [
+    {
+      "name": "General",
+      "functions": [
+        {
+          "name": "standard",
+          "id": "gen-std",
+          "mandatory_function": true,
+          "master": {
+            "mandatory": [
+              2
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              2
+            ]
+          }
+        },
+        {
+          "name": "info",
+          "id": "gen-info",
+          "master": {
+            "mandatory": [
+              20,
+              21,
+              22
+            ]
+          },
+          "slave": {
+            "conditional": [
+              20,
+              21,
+              22
+            ]
+          }
+        },
+        {
+          "name": "service/diagnostics",
+          "id": "gen-diag",
+          "master": {
+            "mandatory": [
+              2,
+              124,
+              126
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              3,
+              125,
+              127
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "CH",
+      "functions": [
+        {
+          "name": "room control",
+          "id": "ch-room-control",
+          "master": {
+            "mandatory": [
+              0,
+              1,
+              3,
+              14,
+              15,
+              17,
+              25
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              1,
+              3,
+              14,
+              17,
+              25
+            ],
+            "conditional": [
+              15
+            ]
+          }
+        },
+        {
+          "name": "OTC control",
+          "id": "ch-otc",
+          "master": {
+            "mandatory": [
+              0,
+              1,
+              3,
+              14,
+              15,
+              17,
+              25,
+              27
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              1,
+              3,
+              14,
+              17,
+              25,
+              27
+            ],
+            "conditional": [
+              15
+            ]
+          }
+        },
+        {
+          "name": "remote water filling",
+          "id": "ch-remote-water",
+          "master": {
+            "mandatory": [
+              0,
+              3,
+              4,
+              5
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              3,
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "name": "remote lock-out reset",
+          "id": "ch-remote-lockout",
+          "master": {
+            "mandatory": [
+              0,
+              3,
+              4,
+              5
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              3,
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "name": "remote room setpoint",
+          "id": "ch-room-setpoint",
+          "master": {
+            "mandatory": [
+              9,
+              100
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              9,
+              100
+            ]
+          }
+        },
+        {
+          "name": "remote override operating mode",
+          "id": "ch-remote-override",
+          "master": {
+            "mandatory": [
+              99
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              99
+            ]
+          }
+        },
+        {
+          "name": "max setpoint adjustment",
+          "id": "ch-max-setpoint-adj",
+          "master": {
+            "mandatory": [
+              6,
+              49,
+              57
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              6,
+              49,
+              57
+            ]
+          }
+        },
+        {
+          "name": "second zone",
+          "id": "ch-second-zone",
+          "master": {
+            "mandatory": [
+              0,
+              3,
+              8,
+              31
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              3,
+              8,
+              31
+            ]
+          }
+        },
+        {
+          "name": "remote parameters",
+          "id": "ch-remote-parameters",
+          "master": {
+            "mandatory": [
+              10,
+              11
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              10,
+              11
+            ]
+          }
+        },
+        {
+          "name": "info",
+          "id": "ch-info",
+          "master": {
+            "name": "info",
+            "mandatory": [
+              0,
+              5,
+              12,
+              13,
+              18,
+              27,
+              28
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              5,
+              12,
+              13
+            ],
+            "conditional": [
+              18,
+              27,
+              28
+            ]
+          }
+        },
+        {
+          "name": "service/diagnostics",
+          "id": "ch-diag",
+          "master": {
+            "conditional": [
+              16,
+              23,
+              24,
+              37
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              4,
+              5,
+              113,
+              114,
+              115,
+              116,
+              117,
+              120,
+              121
+            ],
+            "conditional": [
+              33,
+              34,
+              35,
+              36
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "DHW",
+      "functions": [
+        {
+          "name": "eco/comfort",
+          "id": "dhw-hot-water",
+          "master": {
+            "mandatory": [
+              0,
+              3
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "name": "setpoint adjustment",
+          "id": "dhw-setpoint-adj",
+          "master": {
+            "mandatory": [
+              0,
+              3,
+              6,
+              48,
+              56
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              3,
+              6,
+              48,
+              56
+            ]
+          }
+        },
+        {
+          "name": "remote override operating mode",
+          "id": "dhw-remote-override",
+          "master": {
+            "mandatory": [
+              99
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              99
+            ]
+          }
+        },
+        {
+          "name": "remote parameters",
+          "id": "dhw-remote-parameters",
+          "master": {
+            "mandatory": [
+              10,
+              11
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              10,
+              11
+            ]
+          }
+        },
+        {
+          "name": "info",
+          "id": "dhw-info",
+          "master": {
+            "mandatory": [
+              0,
+              3,
+              5,
+              12,
+              13,
+              19,
+              26,
+              32
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              3,
+              5,
+              12,
+              13
+            ],
+            "conditional": [
+              19,
+              26,
+              32
+            ]
+          }
+        },
+        {
+          "name": "service/diagnostics",
+          "id": "dhw-diag",
+          "master": {},
+          "slave": {
+            "mandatory": [
+              0,
+              5,
+              118,
+              119,
+              122,
+              123
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cooling",
+      "functions": [
+        {
+          "name": "cooling control",
+          "id": "cool-control",
+          "master": {
+            "mandatory": [
+              0,
+              3,
+              7
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              0,
+              3,
+              7
+            ]
+          }
+        },
+        {
+          "name": "remote room setpoint",
+          "id": "cool-room-setpoint",
+          "master": {
+            "mandatory": [
+              9,
+              100
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              9,
+              100
+            ]
+          }
+        },
+        {
+          "name": "remote parameters",
+          "id": "cool-remote-parameters",
+          "master": {
+            "mandatory": [
+              10,
+              11
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              10,
+              11
+            ]
+          }
+        },
+        {
+          "name": "info",
+          "id": "cool-info",
+          "master": {
+            "mandatory": [
+              5,
+              12,
+              13
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              5,
+              12,
+              13
+            ]
+          }
+        },
+        {
+          "name": "service/diagnostics",
+          "id": "cool-diag",
+          "master": {
+            "conditional": [
+              16,
+              24
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              5
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Solar",
+      "functions": [
+        {
+          "name": "solar control",
+          "id": "solar-control",
+          "master": {
+            "mandatory": [
+              101,
+              103
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              101,
+              103
+            ]
+          }
+        },
+        {
+          "name": "remote parameters",
+          "id": "solar-remote-parameters",
+          "master": {
+            "mandatory": [
+              105,
+              106
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              105,
+              106
+            ]
+          }
+        },
+        {
+          "name": "info",
+          "id": "solar-info",
+          "master": {
+            "mandatory": [
+              29,
+              30,
+              101,
+              102,
+              107,
+              108
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              29,
+              101,
+              102,
+              107,
+              108
+            ],
+            "conditional": [
+              30
+            ]
+          }
+        },
+        {
+          "name": "service/diagnostics",
+          "id": "solar-diag",
+          "master": {
+            "mandatory": []
+          },
+          "slave": {
+            "mandatory": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ventilation",
+      "functions": [
+        {
+          "name": "central exhaust control",
+          "id": "vent-central-exhaust-control",
+          "master": {
+            "mandatory": [
+              70,
+              74
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              70,
+              74
+            ]
+          }
+        },
+        {
+          "name": "heat recovery control",
+          "id": "vent-heat-recovery-control",
+          "master": {
+            "mandatory": [
+              16,
+              24,
+              70
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              16,
+              24,
+              70
+            ]
+          }
+        },
+        {
+          "name": "nominal setpoint adjustment",
+          "id": "vent-nominal-setpoint-adj",
+          "master": {
+            "mandatory": [
+              86,
+              87
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              86,
+              87
+            ]
+          }
+        },
+        {
+          "name": "remote parameters",
+          "id": "vent-remote-parameters",
+          "master": {
+            "mandatory": [
+              88,
+              89
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              88,
+              89
+            ]
+          }
+        },
+        {
+          "name": "info",
+          "id": "vent-info",
+          "master": {
+            "mandatory": [
+              38,
+              70,
+              71,
+              72,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              90,
+              91
+            ]
+          },
+          "slave": {
+            "mandatory": [
+              70,
+              71,
+              72,
+              77,
+              90,
+              91
+            ],
+            "conditional": [
+              38,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85
+            ]
+          }
+        },
+        //						{
+        //							"name": "service/diagnostics",
+        //							"master": {  },
+        //							"slave": {  }
+        //						}
+      ]
+    }
+  ]
+}

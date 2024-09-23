@@ -1,0 +1,948 @@
+{
+	"messages": [
+		{ 
+			"id": 0, 
+			"msg_types": [ "read" ], 
+			"name": "status-flags", 
+			"description": "Master status flags / Slave status flags", 
+			"data_objects": [ 
+				{ "name": "master-status", "format": "flag8", "mask": "0xFF00" }, 
+				{ "name": "slave-status", "format": "flag8", "mask": "0x00FF" } 
+			]
+		},
+		{ 
+			"id": 1, 
+			"msg_types": [ "write" ], 
+			"name": "CH-control-setpoint", 
+			"description": "CH water temperature control setpoint (°C)", 
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 100, "units": "°C" } 
+			] 
+		},
+		{ 
+			"id": 2, 
+			"msg_types": [ "write" ], 
+			"name": "master-config/memberid", 
+			"description": "Master configuration flags / Master member ID code", 
+			"data_objects": [ 
+				{ "name": "master-config", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "master-memberid", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 3,
+			"msg_types": [ "read" ],
+			"name": "slave-config/memberid",
+			"description": "Slave configuration flags / Slave member ID code",
+			"data_objects": [
+				{ "name": "slave-config", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "slave-memberid", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 4,
+			"msg_types": [ "write" ],
+			"name": "remote-request/response",
+			"description": "Remote request: request-code / response-code",
+			"data_objects": [
+				{ "name": "remote-request", "format": "u8", "mask": "0xFF00" },
+				{ "name": "remote-response", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 5,
+			"msg_types": [ "read" ],
+			"name": "fault-flags/code",
+			"description": "Application-specific fault flags / OEM fault code",
+			"data_objects": [
+				{ "name": "fault-flags", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "oem-fault-code", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 6,
+			"msg_types": [ "read" ],
+			"name": "RBP-flags",
+			"description": "Remote boiler parameters transfer-enable flags / read-write flags",
+			"data_objects": [
+				{ "name": "RBP-enable-flags", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "RBP-rw-flags", "format": "flag8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 7,
+			"msg_types": [ "write" ],
+			"name": "cooling-control",
+			"description": "Cooling control signal (%)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 100, "units": "%" } 
+			] 
+		},
+		{
+			"id": 8,
+			"msg_types": [ "write" ],
+			"name": "CH2-control-setpoint",
+			"description": "Control setpoint for 2nd CH circuit (°C)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 100, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 9,
+			"msg_types": [ "read" ],
+			"name": "TrSet-override",
+			"description": "Remote override room setpoint (°C)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 30, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 10,
+			"msg_types": [ "read" ],
+			"name": "TSP-size",
+			"description": "Number of transparent slave parameters",
+			"data_objects": [
+				{ "format": "u8", "mask": "0xFF00" }
+			] 
+		},
+		{
+			"id": 11,
+			"msg_types": [ "read", "write" ],
+			"name": "TSP-index/value",
+			"description": "Index / value of referenced transparent slave parameter",
+			"data_objects": [
+				{ "name": "TSP-index", "format": "u8", "mask": "0xFF00" },
+				{ "name": "TSP-value", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 12,
+			"msg_types": [ "read" ],
+			"name": "FHB-size",
+			"description": "Size of the slave fault history buffer",
+			"data_objects": [
+				{ "format": "u8", "mask": "0xFF00" }
+			] 
+		},
+		{
+			"id": 13,
+			"msg_types": [ "read" ],
+			"name": "FHB-index/value",
+			"description": "Index / value of referenced fault history buffer entry",
+			"data_objects": [
+				{ "name": "FHB-index", "format": "u8", "mask": "0xFF00" },
+				{ "name": "FHB-value", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 14,
+			"msg_types": [ "write" ],
+			"name": "max-rel-mod-level",
+			"description": "Maximum relative modulation level setting (%)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 100, "units": "%" } 
+			] 
+		},
+		{
+			"id": 15,
+			"msg_types": [ "read" ],
+			"name": "max-capacity/min-mod-level",
+			"description": "Maximum boiler capacity (kW) / Minimum boiler modulation level (%)",
+			"data_objects": [
+				{ "name": "max-capacity", "format": "u8", "mask": "0xFF00", "units":"kW" },
+				{ "name": "min-mod-level", "format": "u8", "mask": "0x00FF", "units": "%" }
+			] 
+		},
+		{
+			"id": 16,
+			"msg_types": [ "write" ],
+			"name": "room-setpoint",
+			"description": "Room setpoint (°C)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 17,
+			"msg_types": [ "read" ],
+			"name": "rel-mod-level",
+			"description": "Relative modulation level (%)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 100, "units": "%" } 
+			] 
+		},
+		{
+			"id": 18,
+			"msg_types": [ "read" ],
+			"name": "CH-pressure",
+			"description": "Water pressure in CH circuit (bar)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 5, "units": "bar" } 
+			] 
+		},
+		{
+			"id": 19,
+			"msg_types": [ "read" ],
+			"name": "DHW-flow-rate",
+			"description": "Water flow rate in DHW circuit (litres/minute)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 5, "units": "l/min" } 
+			] 
+		},
+		{
+			"id": 20,
+			"msg_types": [ "read", "write" ],
+			"name": "day-time",
+			"description": "Day-of-week and Hours / Minutes",
+			"data_objects": [
+				{ "name": "day-of-week", "format": "u8", "mask": "0xE000", "data_min": 0, "data_max": 7 },
+				{ "name": "hours", "format": "u8", "mask": "0x1F00", "data_min": 0, "data_max": 23 },
+				{ "name": "minutes", "format": "u8", "mask": "0x00FF", "data_min": 0, "data_max": 59 }
+			] 
+		},
+		{
+			"id": 21,
+			"msg_types": [ "read", "write" ],
+			"name": "date",
+			"description": "Calendar date",
+			"data_objects": [
+				{ "name": "month", "format": "u8", "mask": "0xFF00", "data_min": 1, "data_max": 12 },
+				{ "name": "day", "format": "u8", "mask": "0x00FF", "data_min": 1, "data_max": 31 }
+			] 
+		},
+		{
+			"id": 22,
+			"msg_types": [ "read", "write" ],
+			"name": "year",
+			"description": "Calendar year",
+			"data_objects": [
+				{ "format": "u16", "data_min": 1999, "data_max": 2099 }
+			] 
+		},
+		{
+			"id": 23,
+			"msg_types": [ "write" ],
+			"name": "CH2-room-setpoint",
+			"description": "Current room setpoint for 2nd CH circuit (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 24,
+			"msg_types": [ "write" ],
+			"name": "room-temperature",
+			"description": "Current sensed room temperature (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 25,
+			"msg_types": [ "read" ],
+			"name": "boiler-water-temp.",
+			"description": "Flow water temperature from boiler (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 26,
+			"msg_types": [ "read" ],
+			"name": "DHW-temperature",
+			"description": "Domestic hot water temperature (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 27,
+			"msg_types": [ "read", "write" ],
+			"name": "outside-temperature",
+			"description": "Outside air temperature (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 28,
+			"msg_types": [ "read" ],
+			"name": "return-water-temp.",
+			"description": "Return water temperature to boiler (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 29,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-storage-temp.",
+			"description": "Solar storage temperature (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 30,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-collector-temp.",
+			"description": "Solar collector temperature (°C)",
+			"data_objects": [
+				{ "format": "s16", "data_min": -40, "data_max": 250, "units": "°C" }
+			] 
+		},
+		{
+			"id": 31,
+			"msg_types": [ "read" ],
+			"name": "CH2-flow-temp",
+			"description": "Flow water temperature CH2 circuit (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 32,
+			"msg_types": [ "read" ],
+			"name": "DHW2-temperature.",
+			"description": "Domestic hot water temperature 2 (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 33,
+			"msg_types": [ "read" ],
+			"name": "exhaust-temp.",
+			"description": "Exhaust temperature (°C)",
+			"data_objects": [
+				{ "format": "s16", "data_min": -40, "data_max": 500, "units": "°C" }
+			] 
+		},
+		{
+			"id": 34,
+			"msg_types": [ "read" ],
+			"name": "heat-exchanger-temp.",
+			"description": "Boiler heat exchanger temperature (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" }
+			] 
+		},
+		{
+			"id": 35,
+			"msg_types": [ "read" ],
+			"name": "fan-speed-set/actual",
+			"description": "Boiler fan speed setpoint / actual (Hz)",
+			"data_objects": [
+				{ "name": "fan-speed-setpoint", "format": "u8", "mask": "0xFF00", "units":"Hz" },
+				{ "name": "fan-speed-actual", "format": "u8", "mask": "0x00FF", "units": "Hz" }
+			] 
+		},
+		{
+			"id": 36,
+			"msg_types": [ "read" ],
+			"name": "flame-current",
+			"description": "Electrical current through burner flame (µA)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": 0, "data_max": 127, "units": "µA" }
+			] 
+		},
+		{
+			"id": 37,
+			"msg_types": [ "write" ],
+			"name": "CH2-room-temp.",
+			"description": "Room temperature for 2nd CH circuit (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 38,
+			"msg_types": [ "read", "write" ],
+			"name": "relative-humidity",
+			"description": "Actual relative humidity (%)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": 0, "data_max": 100, "units": "%" }
+			] 
+		},
+		{
+			"id": 39,
+			"msg_types": [ "read" ],
+			"name": "TrSet2-override",
+			"description": "Remote override room setpoint 2 (°C)",
+			"data_objects": [ 
+				{ "format": "f8.8", "data_min": 0, "data_max": 30, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 48,
+			"msg_types": [ "read" ],
+			"name": "DHW-setpoint-UB/LB",
+			"description": "RBP1: Upper/lower bounds for adjustment of DHW setpoint (°C)",
+			"data_objects": [
+				{ "name": "DHWset-upperbound", "format": "s8", "mask": "0xFF00",  "data_min": 0, "data_max": 127, "units":"°C" },
+				{ "name": "DHWset-lowerbound", "format": "s8", "mask": "0x00FF",  "data_min": 0, "data_max": 127, "units": "°C" }
+			] 
+		},
+		{
+			"id": 49,
+			"msg_types": [ "read" ],
+			"name": "max-CH-setpoint-UB/LB",
+			"description": "RBP2: Upper/lower bounds for adjustment of maximum CH setpoint (°C)",
+			"data_objects": [
+				{ "name": "max-CHset-upperbound", "format": "s8", "mask": "0xFF00",  "data_min": 0, "data_max": 127, "units":"°C" },
+				{ "name": "max-CHset-lowerbound", "format": "s8", "mask": "0x00FF",  "data_min": 0, "data_max": 127, "units": "°C" }
+			] 
+		},
+		{
+			"id": 56,
+			"msg_types": [ "read", "write" ],
+			"name": "DHW-setpoint",
+			"description": "RBP1: domestic hot water temperature setpoint (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": 0, "data_max":127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 57,
+			"msg_types": [ "read", "write" ],
+			"name": "max-CH-setpoint",
+			"description": "RBP2: maximum allowable CH water setpoint (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": 0, "data_max":127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 70,
+			"msg_types": [ "read" ],
+			"name": "VENT-status-flags",
+			"description": "Master / slave status flags for ventilation heat recovery system",
+			"data_objects": [
+				{ "name": "VENT-master-status", "format": "flag8", "mask": "0xFF00" }, 
+				{ "name": "VENT-slave-status", "format": "flag8", "mask": "0x00FF" } 
+			] 
+		},
+		{
+			"id": 71,
+			"msg_types": [ "write" ],
+			"name": "VENT-control setpoint",
+			"description": "Relative ventilation position control setpoint (%)",
+			"data_objects": [
+				{ "format": "u8", "mask": "0x00FF", "data_min": 0, "data_max": 100, "units": "%"  }
+			] 
+		},
+		{
+			"id": 72,
+			"msg_types": [ "read" ],
+			"name": "VENT-fault-flags/code",
+			"description": "Application-specific fault flags / OEM fault code for ventilation heat recovery system",
+			"data_objects": [
+				{ "name": "VENT-fault-flags", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "VENT-oem-fault-code", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 73,
+			"msg_types": [ "read" ],
+			"name": "VENT-oem-diagnostic-code",
+			"description": "OEM diagnostics/service code for ventilation heat recovery system",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 74,
+			"msg_types": [ "read" ],
+			"name": "VENT-slave-config/memberid",
+			"description": "Slave configuration flags / slave member ID code for ventilation heat recovery system",
+			"data_objects": [
+				{ "name": "VENT-slave-config", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "VENT-slave-memberid", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 75,
+			"msg_types": [ "read" ],
+			"name": "VENT-opentherm-version",
+			"description": "Implemented version of opentherm specification for ventilation heat recovery system",
+			"data_objects": [
+						{ "format": "f8.8", "data_min": 0, "data_max":127 } 
+			] 
+		},
+		{
+			"id": 76,
+			"msg_types": [ "read" ],
+			"name": "VENT-product-type/version",
+			"description": "Manufacturer product type/version for ventilation heat recovery system",
+			"data_objects": [
+				{ "name": "VENT-product-type", "format": "u8", "mask": "0xFF00" },
+				{ "name": "VENT-product-version", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 77,
+			"msg_types": [ "read" ],
+			"name": "VENT-relative-ventilation",
+			"description": "Relative ventilation level for ventilation heat recovery system (%)",
+			"data_objects": [
+				{ "format": "u8", "mask": "0x00FF", "data_min": 0, "data_max": 100, "units": "%"  }
+			] 
+		},
+		{
+			"id": 78,
+			"msg_types": [ "read", "write" ],
+			"name": "VENT-relative-humidity",
+			"description": "Relative humidity exhaust air for ventilation heat recovery system (%)",
+			"data_objects": [
+				{ "format": "u8", "mask": "0x00FF", "data_min": 0, "data_max": 100, "units": "%"  }
+			] 
+		},
+		{
+			"id": 79,
+			"msg_types": [ "read", "write" ],
+			"name": "VENT-CO2-level",
+			"description": "CO2 level exhaust air for ventilation heat recovery system (ppm)",
+			"data_objects": [
+				{ "format": "u16", "data_min": 0, "data_max": 2000, "units": "ppm"  }
+			] 
+		},
+		{
+			"id": 80,
+			"msg_types": [ "read" ],
+			"name": "VENT-supply-inlet-temp.",
+			"description": "Supply inlet temperature for ventilation heat recovery system (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 81,
+			"msg_types": [ "read" ],
+			"name": "VENT-supply-outlet-temp.",
+			"description": "Supply outlet temperature for ventilation heat recovery system (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 82,
+			"msg_types": [ "read" ],
+			"name": "VENT-exhaust-inlet-temp.",
+			"description": "Exhaust inlet temperature for ventilation heat recovery system (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 83,
+			"msg_types": [ "read" ],
+			"name": "VENT-exhaust-outlet-temp.",
+			"description": "Exhaust outlet temperature for ventilation heat recovery system (°C)",
+			"data_objects": [
+				{ "format": "f8.8", "data_min": -40, "data_max": 127, "units": "°C" } 
+			] 
+		},
+		{
+			"id": 84,
+			"msg_types": [ "read" ],
+			"name": "VENT-exhaust-fan-speed",
+			"description": "Acutal exhaust fan speed for ventilation heat recovery system (rpm)",
+			"data_objects": [
+				{ "format": "u16", "data_min": 0, "data_max": 6000, "units": "rpm" } 
+			] 
+		},
+		{
+			"id": 85,
+			"msg_types": [ "read" ],
+			"name": "VENT-inlet-fan-speed",
+			"description": "Actual inlet fan speed for ventilation heat recovery system (rpm)",
+			"data_objects": [
+				{ "format": "u16", "data_min": 0, "data_max": 6000, "units": "rpm" } 
+			] 
+		},
+		{
+			"id": 86,
+			"msg_types": [ "read" ],
+			"name": "VENT-RP-flags",
+			"description": "Remote parameter transfer-enable flags / read-write flags for ventilation heat recovery system",
+			"data_objects": [
+				{ "name": "VENT-RP-enable-flags", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "VENT-RP-rw-flags", "format": "flag8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 87,
+			"msg_types": [ "read", "write" ],
+			"name": "VENT-nominal-ventilation-value",
+			"description": "VENT-RP1: Nominal relative ventilation value for ventilation heat recovery system (%)",
+			"data_objects": [
+				{ "format": "u8", "mask": "0xFF00", "data_min": 0, "data_max": 100, "units": "%" }
+			] 
+		},
+		{
+			"id": 88,
+			"msg_types": [ "read" ],
+			"name": "VENT-TSP-size",
+			"description": "Number of transparent slave parameters for ventilation heat recovery system",
+			"data_objects": [
+				{ "format": "u8", "mask": "0xFF00" }
+			] 
+		},
+		{
+			"id": 89,
+			"msg_types": [ "read", "write" ],
+			"name": "VENT-TSP-index/value",
+			"description": "Index / value of referenced transparent slave parameter for ventilation heat recovery system",
+			"data_objects": [
+				{ "name": "VENT-TSP-index", "format": "u8", "mask": "0xFF00" },
+				{ "name": "VENT-TSP-value", "format": "u8", "mask": "0x00FF" }
+		] 
+		},
+		{
+			"id": 90,
+			"msg_types": [ "read" ],
+			"name": "VENT-FHB-size",
+			"description": "Size of the slave fault history buffer for ventilation heat recovery system ",
+			"data_objects": [
+				{ "format": "u8", "mask": "0xFF00" }
+			] 
+		},
+		{
+			"id": 91,
+			"msg_types": [ "read", "write" ],
+			"name": "VENT-FHB-index/value",
+			"description": "Index / value of referenced fault history buffer entry for ventilation heat recovery system",
+			"data_objects": [
+				{ "name": "VENT-FHB-index", "format": "u8", "mask": "0xFF00" },
+				{ "name": "VENT-FHB-value", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 93,
+			"msg_types": [ "read" ],
+			"name": "Brand name",
+			"description": "Product brand name",
+			"data_objects": [
+				{ "name": "index/length", "format": "u8", "mask": "0xFF00" },
+				{ "name": "character", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 94,
+			"msg_types": [ "read" ],
+			"name": "Brand version",
+			"description": "Product brand version",
+			"data_objects": [
+				{ "name": "index/length", "format": "u8", "mask": "0xFF00" },
+				{ "name": "character", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 95,
+			"msg_types": [ "read" ],
+			"name": "Brand serial nr.",
+			"description": "Product brand serial number",
+			"data_objects": [
+				{ "name": "index/length", "format": "u8", "mask": "0xFF00" },
+				{ "name": "character", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 96,
+			"msg_types": [ "read", "write" ],
+			"name": "COOL-operation-hours",
+			"description": "Number of operation hours in cooling mode",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 97,
+			"msg_types": [ "read", "write" ],
+			"name": "slave-power-cycles",
+			"description": "Number of power cycles of the slave",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 98,
+			"msg_types": [ "write" ],
+			"name": "RF-sensor-status",
+			"description": "RF sensor type / RF sensor information for referenced sensor",
+			"data_objects": [
+				{ "name": "RF-sensor-type", "format": "u8", "mask": "0xFF00" },
+				{ "name": "RF-sensor-info", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 99,
+			"msg_types": [ "read", "write" ],
+			"name": "CH/DHW-mode-override",
+			"description": "Remote override operating mode CH / DHW",
+			"data_objects": [
+				{ "name": "remote-override-mode-DHW", "format": "u8", "mask": "0xFF00" },
+				{ "name": "remote override-mode-CH", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 100,
+			"msg_types": [ "read", "write" ],
+			"name": "TrSet-override-function",
+			"description": "Function of manual and program changes and remote override room setpoint",
+			"data_objects": [
+				{ "format": "flag8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 101,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-status-flags",
+			"description": "Master / slave status flags for solar storage system",
+			"data_objects": [
+				{ "name": "SOLAR-master-status", "format": "flag8", "mask": "0xFF00" }, 
+				{ "name": "SOLAR-slave-status", "format": "flag8", "mask": "0x00FF" } 
+			] 
+		},
+		{
+			"id": 102,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-fault-flags/code",
+			"description": "Application-specific fault flags  / OEM fault code for solar storage system",
+			"data_objects": [
+				{ "name": "SOLAR-fault-flags", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "SOLAR-oem-fault-code", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 103,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-slave-config/memberid",
+			"description": "Slave configuration flags / slave member ID code for solar storage system",
+			"data_objects": [
+				{ "name": "SOLAR-slave-config", "format": "flag8", "mask": "0xFF00" },
+				{ "name": "SOLAR-slave-memberid", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 104,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-product-type/version",
+			"description": "Manufacturer product type/version for solar storage system",
+			"data_objects": [
+				{ "name": "SOLAR-product-type", "format": "u8", "mask": "0xFF00" },
+				{ "name": "SOLAR-product-version", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 105,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-TSP-size",
+			"description": "Number of transparent slave parameters for solar storage system",
+			"data_objects": [
+				{ "format": "u8", "mask": "0xFF00" }
+			] 
+		},
+		{
+			"id": 106,
+			"msg_types": [ "read", "write" ],
+			"name": "SOLAR-TSP-index/value",
+			"description": "Index / value of referenced transparent slave parameter for solar storage system",
+			"data_objects": [
+				{ "name": "SOLAR-TSP-index", "format": "u8", "mask": "0xFF00" },
+				{ "name": "SOLAR-TSP-value", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 107,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-FHB-size",
+			"description": "Size of the slave fault history buffer for solar storage system ",
+			"data_objects": [
+				{ "format": "u8", "mask": "0xFF00" }
+			] 
+		},
+		{
+			"id": 108,
+			"msg_types": [ "read" ],
+			"name": "SOLAR-FHB-index/value",
+			"description": "Index / value of referenced fault history buffer entry for solar storage system",
+			"data_objects": [
+				{ "name": "SOLAR-FHB-index", "format": "u8", "mask": "0xFF00" },
+				{ "name": "SOLAR-FHB-value", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 109,
+			"msg_types": [ "read", "write" ],
+			"name": "electricity-starts",
+			"description": "Number of starts of the electricity producer",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 110,
+			"msg_types": [ "read", "write" ],
+			"name": "electricity-hours",
+			"description": "Number of hours the electricity producer is in operation",
+			"data_objects": [
+				{ "format": "u16", "units": "hrs" }
+			] 
+		},
+		{
+			"id": 111,
+			"msg_types": [ "read" ],
+			"name": "electricity-production",
+			"description": "Current electricity production (Watts)",
+			"data_objects": [
+				{ "format": "u16", "units": "W" }
+			] 
+		},
+		{
+			"id": 112,
+			"msg_types": [ "read", "write" ],
+			"name": "cumulative-electricity-production",
+			"description": "Cumulative electricity production (kWh)",
+			"data_objects": [
+				{ "format": "u16", "units": "W" }
+			] 
+		},
+		{
+			"id": 113,
+			"msg_types": [ "read", "write" ],
+			"name": "unsuccessful-burner-starts",
+			"description": "Number of unsuccessful burner starts",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 114,
+			"msg_types": [ "read", "write" ],
+			"name": "flame-low-count",
+			"description": "Number of times the burner flame signal was too low",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 115,
+			"msg_types": [ "read" ],
+			"name": "oam-diagnostic-code",
+			"description": "OEM specific diagnostics/service code",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 116,
+			"msg_types": [ "read", "write" ],
+			"name": "successful-burner-starts",
+			"description": "Number of successful burner starts",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 117,
+			"msg_types": [ "read", "write" ],
+			"name": "CH-pump-starts",
+			"description": "Number of starts of the CH pump",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 118,
+			"msg_types": [ "read", "write" ],
+			"name": "DHW-pump-valve-starts",
+			"description": "Number of starts of the DHW pump/valve",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 119,
+			"msg_types": [ "read", "write" ],
+			"name": "DHW-burner-starts",
+			"description": "Number of burner starts in DHW mode",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 120,
+			"msg_types": [ "read", "write" ],
+			"name": "burner-operation-hours",
+			"description": "Number of hours the burner is in operation",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 121,
+			"msg_types": [ "read", "write" ],
+			"name": "CH-pump-operation-hours",
+			"description": "Number of hours the CH pump has been running",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 122,
+			"msg_types": [ "read", "write" ],
+			"name": "DHW-pump-valve-operation-hours",
+			"description": "Number of hours the DHW pump has been running or DHW valve has been open",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 123,
+			"msg_types": [ "read", "write" ],
+			"name": "DHW-burner-operation-hours",
+			"description": "number of hours the burner is in operation in DHW mode",
+			"data_objects": [
+				{ "format": "u16" }
+			] 
+		},
+		{
+			"id": 124,
+			"msg_types": [ "write" ],
+			"name": "master-opentherm-version",
+			"description": "Implemented version of opentherm specification in the master",
+			"data_objects": [
+						{ "format": "f8.8", "data_min": 0, "data_max":127 } 
+			] 
+		},
+		{
+			"id": 125,
+			"msg_types": [ "read" ],
+			"name": "slave-opentherm-version",
+			"description": "Implemented version of opentherm specification in the slave",
+			"data_objects": [
+						{ "format": "f8.8", "data_min": 0, "data_max":127 } 
+			] 
+		},
+		{
+			"id": 126,
+			"msg_types": [ "write" ],
+			"name": "master-product-type/version",
+			"description": "Manufacturer product type/version for the master",
+			"data_objects": [
+				{ "name": "master-product-type", "format": "u8", "mask": "0xFF00" },
+				{ "name": "master-product-version", "format": "u8", "mask": "0x00FF" }
+			] 
+		},
+		{
+			"id": 127,
+			"msg_types": [ "read" ],
+			"name": "slave-product-type/version",
+			"description": "Manufacturer product type/version for the slave",
+			"data_objects": [
+				{ "name": "slave-product-type", "format": "u8", "mask": "0xFF00" },
+				{ "name": "slave-product-version", "format": "u8", "mask": "0x00FF" }
+			] 
+		}
+	]
+}
